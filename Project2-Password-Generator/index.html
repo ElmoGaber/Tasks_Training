@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A modern password generator with strength meter and customizable options">
+  <title>Password Generator | Project 2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <div class="generator" role="application" aria-label="Password Generator">
+      <div class="header">
+        <h1>Password Generator</h1>
+        <p class="subtitle">Create secure, random passwords instantly</p>
+      </div>
+
+      <div class="password-display" aria-live="polite">
+        <input type="text" id="passwordOutput" class="password-output" value="P@ssw0rd!" readonly aria-label="Generated password">
+        <button type="button" id="copyBtn" class="copy-btn" aria-label="Copy password to clipboard" title="Copy to clipboard">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div class="strength-meter" role="meter" aria-label="Password strength">
+        <div class="strength-bar" id="strengthBar">
+          <div class="strength-fill" id="strengthFill" style="width: 40%"></div>
+        </div>
+        <span class="strength-label" id="strengthLabel">Medium</span>
+      </div>
+
+      <div class="controls">
+        <div class="length-control">
+          <div class="length-header">
+            <label for="lengthSlider">Character Length</label>
+            <span class="length-value" id="lengthValue">12</span>
+          </div>
+          <input type="range" id="lengthSlider" class="slider" min="4" max="40" value="12" aria-label="Password length">
+        </div>
+
+        <div class="options">
+          <label class="option" tabindex="0">
+            <input type="checkbox" id="uppercase" checked>
+            <span class="checkmark"></span>
+            <span class="option-text">Include Uppercase (A-Z)</span>
+          </label>
+          <label class="option" tabindex="0">
+            <input type="checkbox" id="lowercase" checked>
+            <span class="checkmark"></span>
+            <span class="option-text">Include Lowercase (a-z)</span>
+          </label>
+          <label class="option" tabindex="0">
+            <input type="checkbox" id="numbers" checked>
+            <span class="checkmark"></span>
+            <span class="option-text">Include Numbers (0-9)</span>
+          </label>
+          <label class="option" tabindex="0">
+            <input type="checkbox" id="symbols">
+            <span class="checkmark"></span>
+            <span class="option-text">Include Symbols (!@#$%)</span>
+          </label>
+        </div>
+
+        <button type="button" id="generateBtn" class="generate-btn">Generate Password</button>
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

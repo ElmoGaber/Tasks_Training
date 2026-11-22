@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A precision stopwatch with lap recording and keyboard shortcuts">
+  <title>Stopwatch | Project 3</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <div class="stopwatch" role="application" aria-label="Stopwatch">
+      <div class="header">
+        <h1>Stopwatch</h1>
+        <p class="subtitle">Track time with precision and laps</p>
+      </div>
+
+      <div class="time-display" aria-live="polite">
+        <span class="time" id="display">00:00:00</span>
+        <span class="milliseconds" id="milliseconds">.000</span>
+      </div>
+
+      <div class="controls" role="group" aria-label="Stopwatch controls">
+        <button type="button" id="startBtn" class="btn btn-start" aria-label="Start">Start</button>
+        <button type="button" id="lapBtn" class="btn btn-lap" aria-label="Lap" disabled>Lap</button>
+        <button type="button" id="resetBtn" class="btn btn-reset" aria-label="Reset" disabled>Reset</button>
+      </div>
+
+      <div class="laps-section" id="lapsSection" hidden>
+        <div class="laps-header">
+          <h2>Laps</h2>
+          <button type="button" id="clearLapsBtn" class="clear-laps" aria-label="Clear all laps">Clear All</button>
+        </div>
+        <div class="laps-container" id="lapsContainer" role="list" aria-label="Lap times"></div>
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

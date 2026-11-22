@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Calculate your exact age in years, months, days, and more">
+  <title>Age Calculator | Project 4</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <div class="age-calculator" role="application" aria-label="Age Calculator">
+      <div class="header">
+        <h1>Age Calculator</h1>
+        <p class="subtitle">Discover your exact age and birthday details</p>
+      </div>
+
+      <div class="input-section">
+        <label for="birthdateInput" class="input-label">Enter your date of birth</label>
+        <div class="input-group">
+          <input type="date" id="birthdateInput" class="date-input" aria-label="Date of birth" max="">
+          <button type="button" id="calculateBtn" class="calculate-btn">Calculate</button>
+        </div>
+        <p class="error-msg" id="errorMsg" role="alert"></p>
+      </div>
+
+      <div class="results" id="results" hidden>
+        <div class="result-cards">
+          <div class="result-card card-years">
+            <span class="result-value" id="years">0</span>
+            <span class="result-label">Years</span>
+          </div>
+          <div class="result-card card-months">
+            <span class="result-value" id="months">0</span>
+            <span class="result-label">Months</span>
+          </div>
+          <div class="result-card card-days">
+            <span class="result-value" id="days">0</span>
+            <span class="result-label">Days</span>
+          </div>
+        </div>
+
+        <div class="extra-info">
+          <div class="info-row">
+            <span class="info-label">Total Days Lived</span>
+            <span class="info-value" id="totalDays">0</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Next Birthday</span>
+            <span class="info-value" id="nextBirthday">--</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Days Until Birthday</span>
+            <span class="info-value" id="daysUntilBirthday">--</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Zodiac Sign</span>
+            <span class="info-value" id="zodiacSign">--</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
