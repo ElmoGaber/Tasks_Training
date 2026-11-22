@@ -1,0 +1,136 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background: #87CEEB; /* Sky blue background */
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 500px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #2c3e50;
+    font-size: 2rem;
+}
+
+.search-box {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.search-box input {
+    padding: 10px;
+    font-size: 1rem;
+    width: 60%;
+    padding-right: 100px; /* Make room for button */
+    border: 2px solid #ddd;
+    border-radius: 5px;
+}
+
+.search-box button {
+    position: relative;
+    right: -90px;
+    padding: 10px 20px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+.search-box button:hover {
+    background: #2980b9;
+}
+
+.weather-display {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 4px solid #3498db;
+}
+
+.weather-display.hidden {
+    display: none;
+}
+
+.error {
+    background: #e74c3c;
+    color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.error.hidden {
+    display: none;
+}
+
+.current-weather {
+    text-align: center;
+}
+
+.current-weather h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.temp {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #e67e22;
+    margin: 1rem 0;
+}
+
+.description {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    margin-bottom: 1.5rem;
+}
+
+.details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.detail {
+    text-align: left;
+    width: 48%;
+}
+
+.detail span:first-of-type {
+    display: block;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin-bottom: 4px;
+}
+
+.detail span:last-of-type {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
