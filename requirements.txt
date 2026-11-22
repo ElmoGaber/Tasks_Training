@@ -1,0 +1,9 @@
+fastapi==0.115.14
+uvicorn[standard]==0.52.4
+sqlalchemy==2.0.51
+pydantic==2.13.5
+python-dotenv==1.2.2
+requests==2.34.2
+google-genai==2.8.0
+neonize==0.12.4
+protobuf>=7.36.0
