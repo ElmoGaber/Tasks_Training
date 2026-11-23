@@ -87,6 +87,32 @@ Scan the printed QR code with WhatsApp. Sessions are isolated per phone number.
 | 9 | `track_order(order_id)` | Order status |
 | 10 | `cancel_order(order_id)` | Cancel + restore stock |
 
+## Arabic & Unicode text handling
+
+The chat pipeline is byte-transparent: the model reply (or the static fallback
+reply) is returned as-is. No layer encodes, decodes, normalizes, reverses or
+reshapes Arabic, so mixed Arabic/English text keeps its original code points.
+
+- `agent.py` loads `.env` itself and treats placeholder API keys (for example
+  `your_api_key`) as missing, so the demo runs in fallback mode instead of
+  failing with a provider auth error.
+- `simulate_chat.py` reconfigures stdin/stdout/stderr to UTF-8. Without this,
+  Windows consoles and redirected pipes use the legacy code page (cp1252) and
+  Arabic is both decoded and printed incorrectly.
+- Arabic detection covers the Arabic, Arabic Supplement, Extended-A and
+  presentation-form blocks; intent matching drops harakat/tatweel from the
+  search key only — never from the outgoing text.
+
+### Tests
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+The suite checks fallback replies, intent routing, provider-to-UI passthrough,
+JSON/FastAPI/SQLite transport, and WhatsApp text extraction for Arabic,
+Egyptian Arabic, MSA, English, mixed messages, diacritics and tatweel.
+
 ## Notes
 
 - Gemini client is initialized with `http_options={"api_version": "v1beta"}` (required for function calling).

@@ -16,7 +16,27 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import agent
 
 
+def _configure_utf8_stdio() -> None:
+    """Force UTF-8 on stdin/stdout/stderr so Arabic survives the console.
+
+    When stdout/stderr are redirected (or the console uses a legacy code page
+    such as cp1252), Python encodes with that code page and printing Arabic
+    raises UnicodeEncodeError. Piped input is decoded with the same code page,
+    so Arabic typed into the simulator turns into mojibake before the agent
+    ever sees it. Reconfiguring all three streams keeps text byte-identical.
+    """
+    streams = (sys.stdin, sys.stdout, sys.stderr)
+    for stream in streams:
+        reconfigure = getattr(stream, "reconfigure", None)
+        if reconfigure is not None:
+            try:
+                reconfigure(encoding="utf-8", errors="replace")
+            except (ValueError, OSError):
+                pass
+
+
 def main() -> None:
+    _configure_utf8_stdio()
     phone = os.getenv("SIM_PHONE", "9647700000000")
     print(f"Simulating customer phone: {phone}")
     print("Type a message (or 'exit' to quit, 'reset' to clear session).")
